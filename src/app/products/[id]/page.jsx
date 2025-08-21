@@ -1,7 +1,7 @@
-import Link from 'next/link'
 import React from 'react'
 
-export default function ProductsPage() {
+export default function ProductDetails({params}) {
+  const id=params?.id;
   const data = [
     {
       id: "64e4c5f92a3d9c7a1f3e9b12",
@@ -21,19 +21,22 @@ export default function ProductsPage() {
       image: "/honey.webp",
       description: "Honey is a natural sweetener produced by honeybees from the nectar of flowers. It is rich in antioxidants, enzymes, vitamins, and minerals, making it both a food and a traditional remedy. Known for its antibacterial and anti-inflammatory properties, honey supports digestion, soothes sore throats, boosts energy, and promotes skin health. It is widely used in beverages, desserts, skincare, and natural medicine."
     }
-  ]
+  ];
+  const singleData=data.find(d=>d?.id===id)
   return (
-    <section className='py-10'>
-      <h2 className='text-bold text-green-600 text-4xl font-bold mb-20'>Products Page
+    <section>
+      <h2 className='text-bold text-green-600 text-4xl font-bold mb-20'>Single Product Details
       </h2>
-      <section className='grid gap-10'>
-        {data.map(d => <div key={d?.id}>
-          <Link href={`/products/${d?.id}`}>
-            <img src={d?.image} alt={d?.name} className='max-h-[200px] rounded-lg border border-gray-300/50 mb-5 cursor-pointer' />
-          </Link>
+
+      <div className='grid md:grid-cols-[50%_50%]'>
+        <div>
+          <img src={singleData?.image} alt={singleData?.name} />
+        </div>
+        <div>
           <h2 className='text-3xl font-semibold'>{d?.name}</h2>
-        </div>)}
-      </section>
+          <p>{d?.description}</p>
+        </div>
+      </div>
     </section>
   )
 }

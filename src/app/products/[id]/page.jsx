@@ -72,7 +72,7 @@ export default function ProductDetails({params}) {
   ]
   const singleData=data.find(d=>d?.id===id)
   return (
-    <section className='padding'>
+    <section >
       <h2 className='text-bold text-green-600 text-4xl font-bold my-10 text-center'>Single Product Details
       </h2>
 

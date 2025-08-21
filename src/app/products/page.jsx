@@ -71,7 +71,7 @@ export default function ProductsPage() {
     },
   ]
   return (
-    <section className='py-10 padding'>
+    <section className='py-10'>
       <h1 className='text-bold text-green-700 text-4xl lg:text-6xl font-bold my-10 text-center '>Products Page
       </h1>
       <section className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-5'>

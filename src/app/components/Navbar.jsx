@@ -3,8 +3,8 @@ import React from 'react'
 
 export default function Navbar() {
   return (
-    <div>
-      <nav className='flex justify-between bg-green-200 py-6 padding'>
+    <section>
+      <nav className='flex justify-between bg-green-200 py-6 padding border-b border-gray-500/80'>
         <div>
           <img className='h-10 border-2 border-green-700 rounded-md' src='/logo1.png' alt="Logo" />
         </div>
@@ -38,6 +38,6 @@ export default function Navbar() {
           </ul>
         </div>
       </nav>
-    </div>
+    </section>
   )
 }

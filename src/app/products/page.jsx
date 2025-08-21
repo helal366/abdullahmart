@@ -2,7 +2,7 @@ import Link from 'next/link'
 import React from 'react'
 
 export default function ProductsPage() {
-  const data = [
+ const data = [
     {
       id: "64e4c5f92a3d9c7a1f3e9b12",
       name: "Almonds",
@@ -25,61 +25,61 @@ export default function ProductsPage() {
       id: "64e5a1b4c9f1a7d2e3b4c8a1",
       name: "Chia Seeds",
       image: "/chia_seeds.webp",
-      description: ""
+      description: "Chia Seeds are tiny black or white seeds from the Salvia hispanica plant, native to Central and South America. They’re rich in fiber, omega-3 fatty acids, protein, antioxidants, and essential minerals like calcium and magnesium. When soaked in liquid, chia seeds absorb many times their weight in water, forming a gel-like texture, which makes them popular in puddings, smoothies, and as an egg substitute in vegan baking."
     },
     {
       id:"64f7c2d9b1a8e4f2d7c9b5a3",
       name: "Premium Ajwa Dates",
-      image: "",
-      description: ""
+      image: "/ajwa_premium_dates.jpg",
+      description: "Premium Ajwa Dates are a prized variety of dates grown in Medina, Saudi Arabia, known for their rich, soft texture, natural sweetness, and distinctive dark color. They are highly valued for their nutritional benefits, including being a good source of fiber, antioxidants, and essential minerals, while also holding cultural and traditional significance."
     },
     {
       id:"6501d4f7e2b3c9a1f4b7d2e8",
       name: "Egyptian Medjul Dates",
-      image: "",
-      description: ""
+      image: "/egyptian_medjul_dates.jpg",
+      description: "Egyptian Medjool Dates are large, soft, and naturally sweet dates, often called the “king of dates” for their rich flavor and chewy texture. Grown in Egypt’s ideal climate, they are packed with fiber, potassium, and antioxidants, making them both a healthy snack and a natural energy booster."
     },
     {
       id:"6512e9b8a7c4f1d3e2b5a9c6",
       name: "Extra Virgin Coconut Oil",
-      image: "",
-      description: ""
+      image: "/extra_virgin_coconut_oil.jpg",
+      description: "Extra Virgin Coconut Oil is a natural, unrefined oil extracted from fresh coconut meat without the use of heat or chemicals. It retains its pure aroma, flavor, and nutrients, making it rich in healthy fats, antioxidants, and antimicrobial properties. Commonly used in cooking, skincare, and haircare, it is valued for its versatility and health benefits."
     },
     {
       id:"6524f7a1d9c3e8b2a4f1c7d5",
       name: "Ghee",
-      image: "",
-      description: ""
+      image: "/ghee.jpg",
+      description: "Ghee is a type of clarified butter traditionally used in South Asian cooking, made by simmering butter to remove water and milk solids. It has a rich, nutty flavor, a high smoke point, and is valued for its nutritional benefits, including healthy fats and fat-soluble vitamins. Commonly used in cooking, Ayurveda, and rituals, ghee is prized for both taste and wellness."
     },
     {
       id:"6536a2d4b9e7c1f8d3a5e2c7",
       name: "Moringa Powder",
-      image: "",
-      description: ""
+      image: "/moringa_powder.jpg",
+      description: "Moringa Powder is made from the dried leaves of the Moringa oleifera tree, often called the “drumstick tree” or “miracle tree.” It is rich in vitamins, minerals, antioxidants, and plant protein, making it a popular superfood. Commonly added to smoothies, teas, and recipes, moringa powder is valued for supporting energy, immunity, and overall wellness."
     },
     {
       id:"6548c3b1f2a9e7d4c8b5a1f6",
       name: "Spirulina",
-      image: "",
-      description: ""
+      image: "/spirulina.jpg",
+      description: "Spirulina is a blue-green algae known as a nutrient-dense superfood. Packed with protein, vitamins, minerals, and antioxidants, it supports energy, immunity, and overall wellness. Commonly available in powder or tablet form, spirulina is often added to smoothies, juices, and health supplements for a natural nutrient boost."
     },
     {
       id:"655ad7e2b4c1f9a8d3e6b2c4",
       name: "Turmeric Powder",
-      image: "",
-      description: ""
+      image: "/turmeric_powderjpg.jpg",
+      description: "Turmeric Powder is a bright yellow spice made from the dried root of the turmeric plant (Curcuma longa). Renowned for its warm, earthy flavor and natural anti-inflammatory properties, it is widely used in cooking, herbal remedies, and wellness practices. Rich in antioxidants, turmeric powder supports digestion, immunity, and overall health."
     },
   ]
   return (
     <section className='py-10 padding'>
-      <h2 className='text-bold text-green-600 text-4xl font-bold mb-20'>Products Page
-      </h2>
+      <h1 className='text-bold text-green-700 text-4xl lg:text-6xl font-bold my-10 text-center '>Products Page
+      </h1>
       <section className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-5'>
-        {data.map(d => <div key={d?.id} className='bg-green-100 rouded-lg border border-gray-400/50'>
+        {data.map(d => <div key={d?.id} className='bg-green-100 rounded-lg border border-gray-400/50'>
           <Link href={`/products/${d?.id}`}>
-            <img src={d?.image} alt={d?.name} className='max-h-[100px] w-full rounded-t-lg border border-gray-300/50 mb-5 cursor-pointer' />
+            <img src={d?.image} alt={d?.name} className='h-[200px] w-full p-6 rounded-lg border border-gray-300/50 cursor-pointer' />
           </Link>
-          <h2 className='text-3xl font-semibold text-center'>{d?.name}</h2>
+          <h4 className='text-lg font-semibold text-center mb-5'>{d?.name}</h4>
         </div>)}
       </section>
     </section>

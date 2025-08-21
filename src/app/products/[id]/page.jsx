@@ -1,3 +1,4 @@
+import NotFound from '@/app/not-found';
 import React from 'react'
 
 export default function ProductDetails({params}) {
@@ -70,21 +71,25 @@ export default function ProductDetails({params}) {
       description: "Turmeric Powder is a bright yellow spice made from the dried root of the turmeric plant (Curcuma longa). Renowned for its warm, earthy flavor and natural anti-inflammatory properties, it is widely used in cooking, herbal remedies, and wellness practices. Rich in antioxidants, turmeric powder supports digestion, immunity, and overall health."
     },
   ]
-  const singleData=data.find(d=>d?.id===id)
-  return (
-    <section className='padding py-10'>
-      <h2 className='text-bold text-green-600 text-4xl font-bold mb-10 text-center'>Single Product Details
-      </h2>
-
-      <div className='grid md:grid-cols-[48.5%_48.5%] gap-[3%]'>
-        <div className='w-full flex justify-center'>
-          <img className='w-full rounded-lg border border-gray-400/50' src={singleData?.image} alt={singleData?.name} />
+  const singleData=data.find(d=>d?.id===id);
+  if(singleData){
+    return (
+      <section className='padding py-10'>
+        <h2 className='text-bold text-green-600 text-4xl font-bold mb-10 text-center'>Single Product Details
+        </h2>
+  
+        <div className='grid md:grid-cols-[48.5%_48.5%] gap-[3%]'>
+          <div className='w-full flex justify-center'>
+            <img className='w-full rounded-lg border border-gray-400/50' src={singleData?.image} alt={singleData?.name} />
+          </div>
+          <div>
+            <h2 className='text-3xl font-semibold my-5'>{singleData?.name}</h2>
+            <p className='text-justify'>{singleData?.description}</p>
+          </div>
         </div>
-        <div>
-          <h2 className='text-3xl font-semibold my-5'>{singleData?.name}</h2>
-          <p className='text-justify'>{singleData?.description}</p>
-        </div>
-      </div>
-    </section>
-  )
+      </section>
+    )
+  }else{
+    return <NotFound/>
+  }
 }

@@ -21,11 +21,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
+        suppressHydrationWarning
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Navbar/>
-        <main className="min-h-screen place-items-center place-content-center">
-           {children}
+        <Navbar />
+        <main className="min-h-screen ">
+          {children}
         </main>
         <footer className="bg-slate-200">
           abdullahMart e-commerce web site

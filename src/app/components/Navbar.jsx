@@ -9,19 +9,19 @@ export default function Navbar() {
           <img className='h-10 border-2 border-green-700 rounded-md' src='/logo1.png' alt="Logo" />
         </div>
         <ul className='flex justify-center gap-5 text-black'>
-          <li className='cursor-pointer authButton '>
+          <li className='authButton '>
             <Link href="/">
               Home
             </Link>
           </li>
 
-          <li className='cursor-pointer authButton'>
+          <li className='authButton'>
             <Link href="/products">
               Products
             </Link>
           </li>
 
-          <li className='cursor-pointer authButton'>
+          <li className='authButton'>
             <Link href="/about">
               About
             </Link>
@@ -29,11 +29,11 @@ export default function Navbar() {
         </ul>
         <div>
           <ul className='flex justify-end gap-5 text-black'>
-            <li >
-              <button type="button" className='authButton'>Login</button>
+            <li className='authButton'>
+              <Link href='/login'>Login</Link>
             </li>
-            <li className='cursor-pointer'>
-              <button type="button" className='authButton'>Register</button>
+            <li className='authButton'>
+              <Link href='/register'>Register</Link>
             </li>
           </ul>
         </div>

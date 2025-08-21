@@ -6,29 +6,29 @@ export default function Navbar() {
     <div>
       <nav className='flex justify-between bg-green-200 py-6 padding'>
         <div>
-          <img className='h-10 border-2 border-white rounded-md' src='/logo1.png' alt="Logo" />
+          <img className='h-10 border-2 border-green-700 rounded-md' src='/logo1.png' alt="Logo" />
         </div>
-        <ul className='flex justify-center gap-6 text-black'>
-          <li className='cursor-pointer'>
+        <ul className='flex justify-center gap-5 text-black'>
+          <li className='cursor-pointer authButton '>
             <Link href="/">
               Home
             </Link>
           </li>
 
-          <li className='cursor-pointer'>
+          <li className='cursor-pointer authButton'>
             <Link href="/products">
               Products
             </Link>
           </li>
 
-          <li className='cursor-pointer'>
+          <li className='cursor-pointer authButton'>
             <Link href="/about">
               About
             </Link>
           </li>
         </ul>
         <div>
-          <ul className='flex justify-end gap-6 text-black'>
+          <ul className='flex justify-end gap-5 text-black'>
             <li >
               <button type="button" className='authButton'>Login</button>
             </li>

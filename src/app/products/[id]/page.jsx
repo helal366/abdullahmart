@@ -80,7 +80,7 @@ export default function ProductDetails({params}) {
   
         <div className='grid md:grid-cols-[48.5%_48.5%] gap-[3%]'>
           <div className='w-full flex justify-center'>
-            <img className='w-full rounded-lg border border-gray-400/50' src={singleData?.image} alt={singleData?.name} />
+            <img className='w-full max-h-[500px] rounded-lg border border-gray-400/50' src={singleData?.image} alt={singleData?.name} />
           </div>
           <div>
             <h2 className='text-3xl font-semibold my-5'>{singleData?.name}</h2>

@@ -13,17 +13,18 @@ export const authOptions = {
             // e.g. domain, username, password, 2FA token, etc.
             // You can pass any HTML attribute to the <input> tag through the object.
             credentials: {
-                username: { label: "Username", type: "text", placeholder: "jsmith" },
-                password: { label: "Password", type: "password" },
-
+                username: { label: "Username", type: "text", placeholder: "Abdur Rahim" },
+                password: { label: "Password", type: "password" , placeholder: "******"},
+                email: {label: "Email", type: "email", placeholder: "ab@gmail.com"}
             },
             async authorize(credentials, req) {
                 console.log("CREDENTIALS FROM AUTH", credentials)
                 // Add logic here to look up the user from the credentials supplied
-                const { username, password } = credentials
-                const user = await dbConnect(collectionNames.TEST_USER).findOne({ username })
+                const { username, password, email } = credentials
+                // const user = await dbConnect(collectionNames.USERS).findOne({ username })
+                const user = await dbConnect(collectionNames.USERS).findOne({ email })
 
-                const isPasswordOK = password == user.password
+                const isPasswordOK = password == user?.password
                 //const user = { id: "1", name: "J Smith", email: "jsmith@example.com" }
 
                 if (isPasswordOK) {

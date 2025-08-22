@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React from 'react';
+import LoginButton from './LoginButton';
 
 export default function Navbar() {
   const pathname=usePathname();
@@ -34,7 +35,9 @@ export default function Navbar() {
           <div>
             <ul className='flex justify-end gap-5 text-black'>
               <li className='authButton'>
-                <Link href='/login'>Login</Link>
+                {/* <Link href='/login'>
+                </Link> */}
+                <LoginButton/>
               </li>
               <li className='authButton'>
                 <Link href='/register'>Register</Link>

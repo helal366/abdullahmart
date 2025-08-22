@@ -62,7 +62,7 @@ export default function ProductsPage() {
       name: "Extra Virgin Coconut Oil",
       image: "/extra_virgin_coconut_oil.jpg",
       price: 1600,
-      unit: "1000 mL",
+      unit: "1000mL",
       description: "Extra Virgin Coconut Oil is a natural, unrefined oil extracted from fresh coconut meat without the use of heat or chemicals. It retains its pure aroma, flavor, and nutrients, making it rich in healthy fats, antioxidants, and antimicrobial properties. Commonly used in cooking, skincare, and haircare, it is valued for its versatility and health benefits."
     },
     {
@@ -78,7 +78,7 @@ export default function ProductsPage() {
       name: "Moringa Powder",
       image: "/moringa_powder.jpg",
       price: 800,
-      unit: "1/2 kg",
+      unit: "500gm",
       description: "Moringa Powder is made from the dried leaves of the Moringa oleifera tree, often called the “drumstick tree” or “miracle tree.” It is rich in vitamins, minerals, antioxidants, and plant protein, making it a popular superfood. Commonly added to smoothies, teas, and recipes, moringa powder is valued for supporting energy, immunity, and overall wellness."
     },
     {
@@ -86,7 +86,7 @@ export default function ProductsPage() {
       name: "Spirulina",
       image: "/spirulina.jpg",
       price: 2600,
-      unit: "200 gm",
+      unit: "200gm",
       description: "Spirulina is a blue-green algae known as a nutrient-dense superfood. Packed with protein, vitamins, minerals, and antioxidants, it supports energy, immunity, and overall wellness. Commonly available in powder or tablet form, spirulina is often added to smoothies, juices, and health supplements for a natural nutrient boost."
     },
     {
@@ -94,7 +94,7 @@ export default function ProductsPage() {
       name: "Turmeric Powder",
       image: "/turmeric_powder.jpg",
       price: 300,
-      unit: "150 gm",
+      unit: "150gm",
       description: "Turmeric Powder is a bright yellow spice made from the dried root of the turmeric plant (Curcuma longa). Renowned for its warm, earthy flavor and natural anti-inflammatory properties, it is widely used in cooking, herbal remedies, and wellness practices. Rich in antioxidants, turmeric powder supports digestion, immunity, and overall health."
     },
   ];
@@ -105,8 +105,8 @@ export default function ProductsPage() {
       </h2>
       <section className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-5'>
         {data.map(d => <div key={d?.id} className='bg-green-100 rounded-lg border border-gray-400/50'>
-          <Link href={`/products/${d?.id}`}>
-            <div className='h-[200px] w-full p-6 rounded-lg border border-gray-300/50 cursor-pointer overflow-hidden'>
+          
+            <div className='h-[200px] w-full p-6 rounded-lg border border-gray-300/50 overflow-hidden'>
               <Image
                 src={d?.image}
                 alt={d?.name}
@@ -114,8 +114,13 @@ export default function ProductsPage() {
                 height={500}
                 className='h-full w-full object-cover rounded-lg' />
             </div>
+          <h4 className='text-sm text-center mb-2'>{d?.name}</h4>
+          <div className='flex justify-around items-center mb-5'>
+            <p className='text-sm font-semibold'>Tk. {d?.price}/{d?.unit}</p>
+            <Link href={`/products/${d?.id}`}>
+              <button className='detailsButton'>Details</button>
           </Link>
-          <h4 className='font-semibold text-center mb-5'>{d?.name}</h4>
+          </div>
         </div>)}
       </section>
     </section>

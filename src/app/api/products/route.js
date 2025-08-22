@@ -1,14 +1,17 @@
-export const dynamic = 'force-static'
+import dbConnect, { collectionNames } from "@/lib/dbConnect"
+import { revalidatePath } from "next/cache"
+import { NextResponse } from "next/server";
  
 export async function GET() {
-  const data = await dbConnect("products").find({}).toArray()
+  const data = await dbConnect(collectionNames.PRODUCTS).find({}).toArray()
  
-  return Response.json(data )
+  return NextResponse.json(data);
 }
 
 // post
 export async function POST(req){
     const newProduct= await req.json();
-    const result=await dbConnect("products").insertOne(newProduct)
-    return Response.json(result)
+    const result=await dbConnect(collectionNames.PRODUCTS).insertOne(newProduct);
+    revalidatePath("/products");
+    return NextResponse.json(data);
 }

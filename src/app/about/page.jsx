@@ -12,7 +12,7 @@ export default function About() {
       <h1 className="text-4xl font-bold text-center text-black mb-6">
         About <span className="text-green-900">AbdullahMart</span>
       </h1>
-      <p className="text-center text-lg text-gray-600 mb-12">
+      <p className="text-center text-lg text-black mb-12">
         Your trusted online marketplace delivering quality products with care and reliability.
       </p>
 

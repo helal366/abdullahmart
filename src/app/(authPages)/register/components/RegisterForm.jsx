@@ -30,7 +30,7 @@ export default function RegisterForm() {
             name="username"
             id="username"
             placeholder="Enter your name"
-            className="w-full mt-2 px-4 py-2 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition"
+            className="w-full mt-2 px-4 py-2 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-700 focus:border-blue-400 transition"
           />
         </div>
 
@@ -44,7 +44,7 @@ export default function RegisterForm() {
             name="email"
             id="email"
             placeholder="Enter your email"
-            className="w-full mt-2 px-4 py-2 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition"
+            className="w-full mt-2 px-4 py-2 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-700 focus:border-blue-400 transition"
           />
         </div>
 
@@ -58,7 +58,7 @@ export default function RegisterForm() {
             name="password"
             id="password"
             placeholder="Enter your password"
-            className="w-full my-2 px-4 py-2 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition"
+            className="w-full my-2 px-4 py-2 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-700 focus:border-blue-400 transition"
           />
         </div>
 

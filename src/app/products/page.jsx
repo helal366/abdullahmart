@@ -28,7 +28,7 @@ export default function ProductsPage() {
     {
       id: "64e4c60f8b7d2e4c9a1b7f56",
       name: "Honey",
-      image: "/honey.webp",
+      image: "/honey.png",
       price: 1000,
       unit: "kg",
       description: "Honey is a natural sweetener produced by honeybees from the nectar of flowers. It is rich in antioxidants, enzymes, vitamins, and minerals, making it both a food and a traditional remedy. Known for its antibacterial and anti-inflammatory properties, honey supports digestion, soothes sore throats, boosts energy, and promotes skin health. It is widely used in beverages, desserts, skincare, and natural medicine."
@@ -116,7 +116,7 @@ export default function ProductsPage() {
             </div>
           <h4 className='text-sm text-center mb-2'>{d?.name}</h4>
           <div className='flex justify-around items-center mb-5'>
-            <p className='text-sm font-semibold'>Tk. {d?.price}/{d?.unit}</p>
+            <p className='text-sm'>Tk. {d?.price}/{d?.unit}</p>
             <Link href={`/products/${d?.id}`}>
               <button className='detailsButton'>Details</button>
           </Link>

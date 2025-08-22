@@ -10,7 +10,7 @@ export const metadata = {
 
 export default function ProductDetails({ params }) {
   const id = params?.id;
-  const data = [
+   const data = [
     {
       id: "64e4c5f92a3d9c7a1f3e9b12",
       name: "Almonds",
@@ -30,7 +30,7 @@ export default function ProductDetails({ params }) {
     {
       id: "64e4c60f8b7d2e4c9a1b7f56",
       name: "Honey",
-      image: "/honey.webp",
+      image: "/honey.png",
       price: 1000,
       unit: "kg",
       description: "Honey is a natural sweetener produced by honeybees from the nectar of flowers. It is rich in antioxidants, enzymes, vitamins, and minerals, making it both a food and a traditional remedy. Known for its antibacterial and anti-inflammatory properties, honey supports digestion, soothes sore throats, boosts energy, and promotes skin health. It is widely used in beverages, desserts, skincare, and natural medicine."
@@ -64,7 +64,7 @@ export default function ProductDetails({ params }) {
       name: "Extra Virgin Coconut Oil",
       image: "/extra_virgin_coconut_oil.jpg",
       price: 1600,
-      unit: "1000 mL",
+      unit: "1000mL",
       description: "Extra Virgin Coconut Oil is a natural, unrefined oil extracted from fresh coconut meat without the use of heat or chemicals. It retains its pure aroma, flavor, and nutrients, making it rich in healthy fats, antioxidants, and antimicrobial properties. Commonly used in cooking, skincare, and haircare, it is valued for its versatility and health benefits."
     },
     {
@@ -80,7 +80,7 @@ export default function ProductDetails({ params }) {
       name: "Moringa Powder",
       image: "/moringa_powder.jpg",
       price: 800,
-      unit: "1/2 kg",
+      unit: "500gm",
       description: "Moringa Powder is made from the dried leaves of the Moringa oleifera tree, often called the “drumstick tree” or “miracle tree.” It is rich in vitamins, minerals, antioxidants, and plant protein, making it a popular superfood. Commonly added to smoothies, teas, and recipes, moringa powder is valued for supporting energy, immunity, and overall wellness."
     },
     {
@@ -88,7 +88,7 @@ export default function ProductDetails({ params }) {
       name: "Spirulina",
       image: "/spirulina.jpg",
       price: 2600,
-      unit: "200 gm",
+      unit: "200gm",
       description: "Spirulina is a blue-green algae known as a nutrient-dense superfood. Packed with protein, vitamins, minerals, and antioxidants, it supports energy, immunity, and overall wellness. Commonly available in powder or tablet form, spirulina is often added to smoothies, juices, and health supplements for a natural nutrient boost."
     },
     {
@@ -96,10 +96,10 @@ export default function ProductDetails({ params }) {
       name: "Turmeric Powder",
       image: "/turmeric_powder.jpg",
       price: 300,
-      unit: "150 gm",
+      unit: "150gm",
       description: "Turmeric Powder is a bright yellow spice made from the dried root of the turmeric plant (Curcuma longa). Renowned for its warm, earthy flavor and natural anti-inflammatory properties, it is widely used in cooking, herbal remedies, and wellness practices. Rich in antioxidants, turmeric powder supports digestion, immunity, and overall health."
     },
-  ]
+  ];
   const singleData = data.find(d => d?.id === id);
   if (!singleData) {
     return <NotFound />
@@ -122,7 +122,10 @@ export default function ProductDetails({ params }) {
         </div>
         <div>
           <h2 className='text-3xl font-semibold mb-5 text-green-800'>{singleData?.name}</h2>
-          <p className='text-justify mb-8'>{singleData?.description}</p>
+          <p className='text-justify mb-5'>{singleData?.description}</p>
+           <p className='mb-8'>
+            <span className='font-semibold'>Price: </span> Tk. {singleData?.price}/{singleData?.unit}
+          </p>
           <Link href={'/products'}>
             <button className='authButton'>
               Back To Products

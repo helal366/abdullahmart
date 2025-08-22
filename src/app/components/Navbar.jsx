@@ -35,8 +35,6 @@ export default function Navbar() {
           <div>
             <ul className='flex justify-end gap-5 text-black'>
               <li className='authButton'>
-                {/* <Link href='/login'>
-                </Link> */}
                 <LoginButton/>
               </li>
               <li className='authButton'>

@@ -4,7 +4,7 @@ import { signIn } from "next-auth/react";
 export default function LoginButton() {
   return (
     <div>
-      <button onClick={() => signIn()}>Login</button>
+      <button className="cursor-pointer" onClick={() => signIn()}>Login</button>
     </div>
   );
 }

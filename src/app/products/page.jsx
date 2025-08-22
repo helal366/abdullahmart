@@ -7,12 +7,9 @@ export const metadata = {
   title: "All Products",
   description: "All the products are shown here.",
 };
-export const dynamic = "force-dynamic";
 
 export default async function ProductsPage() {
   const products = await getProducts();
-  console.log({products})
-
   return (
     <section className='py-10 padding'>
       <h2 className='text-green-800 text-4xl font-bold mb-10 text-center bg-green-100 py-5 rounded-lg border border-gray-400/50'>
@@ -34,7 +31,7 @@ export default async function ProductsPage() {
             <p className='text-sm mb-3 px-4'>{d?.tagline}</p>
             <div className='mt-auto px-4 mb-5'>
               <p className='text-sm mb-2'>Tk. {d?.price} ({d?.unit})</p>
-              <Link href={`/products/${d?.id}`}>
+              <Link href={`/products/${d?._id}`}>
                 <button className='detailsButton'>Details</button>
               </Link>
             </div>

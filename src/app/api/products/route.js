@@ -1,17 +1,14 @@
 export const dynamic = 'force-static'
  
 export async function GET() {
-  const data = {
-    message: "GET successfully",
-    error: false,
-    status: 200
-  }
+  const data = await dbConnect("products").find({}).toArray()
  
-  return Response.json({ data })
+  return Response.json(data )
 }
 
 // post
 export async function POST(req){
-    const newProducts= await req.json();
-    return Response.json({newProducts})
+    const newProduct= await req.json();
+    const result=await dbConnect("products").insertOne(newProduct)
+    return Response.json(result)
 }

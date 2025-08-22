@@ -5,7 +5,7 @@ export const middleware = async (req) => {
 
     const token = await getToken({ req });
     const isTokenOK = Boolean(token)
-    const isAdminUser = token?.role == 'admin'
+    const isAdminUser = token?.role === 'admin'
     const isAdminSpecificRoute = req.nextUrl.pathname.startsWith("/dashboard")
 
     if (isAdminSpecificRoute && !isAdminUser) {

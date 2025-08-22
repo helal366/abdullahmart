@@ -1,5 +1,6 @@
 import Image from "next/image";
 import HomeBanner from "./components/HomeBanner";
+import HomeFavorites from "./components/HomeFavorites";
 
 export const metadata = {
   title: "Home | abdullahMart",
@@ -8,8 +9,9 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <section className="padding my-10">
+    <section className="padding py-10">
       <HomeBanner/>
+      <HomeFavorites/>
     </section>
   );
 }

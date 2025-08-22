@@ -1,12 +1,13 @@
-"use client";
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React from 'react';
 import LoginButton from './LoginButton';
+import { getServerSession } from 'next-auth';
 
-export default function Navbar() {
-  const pathname=usePathname();
-  if(!pathname.includes('dashboard')){
+export default async function Navbar() {
+  const session = await getServerSession(authOptions)
+  const pathname = usePathname();
+  if (!pathname.includes('dashboard')) {
     return (
       <section>
         <nav className='flex justify-between bg-green-100 py-6 padding border-b border-gray-500/80'>
@@ -19,13 +20,13 @@ export default function Navbar() {
                 Home
               </Link>
             </li>
-  
+
             <li className='authButton'>
               <Link href="/products">
                 Products
               </Link>
             </li>
-  
+
             <li className='authButton'>
               <Link href="/about">
                 About
@@ -33,19 +34,28 @@ export default function Navbar() {
             </li>
           </ul>
           <div>
-            <ul className='flex justify-end gap-5 text-black'>
-              <li className='authButton'>
-                <LoginButton/>
-              </li>
-              <li className='authButton'>
-                <Link href='/register'>Register</Link>
-              </li>
-            </ul>
+            {
+              session?.user ? (
+                  <li className='authButton'>
+                    <LoginButton />
+                  </li>
+              ) : (
+                  <ul className='flex justify-end gap-5 text-black'>
+                    <li className='authButton'>
+                      <LoginButton />
+                    </li>
+                    <li className='authButton'>
+                      <Link href='/register'>Register</Link>
+                    </li>
+                  </ul>
+              )
+            }
+
           </div>
         </nav>
       </section>
     )
-  }else{
+  } else {
     return <></>
   }
 }

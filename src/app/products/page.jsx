@@ -66,7 +66,7 @@ export default function ProductsPage() {
     {
       id:"655ad7e2b4c1f9a8d3e6b2c4",
       name: "Turmeric Powder",
-      image: "/turmeric_powderjpg.jpg",
+      image: "/turmeric_powder.jpg",
       description: "Turmeric Powder is a bright yellow spice made from the dried root of the turmeric plant (Curcuma longa). Renowned for its warm, earthy flavor and natural anti-inflammatory properties, it is widely used in cooking, herbal remedies, and wellness practices. Rich in antioxidants, turmeric powder supports digestion, immunity, and overall health."
     },
   ]

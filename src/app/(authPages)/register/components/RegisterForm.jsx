@@ -15,7 +15,7 @@ export default function RegisterForm() {
   };
 
   return (
-    <div className="max-w-lg mx-auto mt-10 p-6 bg-green-100 rounded-lg shadow-lg border border-gray-500/60">
+    <div className="max-w-2xl mx-auto mt-10 p-6 bg-green-100 rounded-lg shadow-lg border border-gray-500/60">
       <h2 className="text-2xl font-semibold mb-6 text-center text-gray-800">
         Create Your Account
       </h2>
@@ -30,7 +30,7 @@ export default function RegisterForm() {
             name="username"
             id="username"
             placeholder="Enter your name"
-            className="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition"
+            className="w-full mt-2 px-4 py-2 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition"
           />
         </div>
 
@@ -44,7 +44,7 @@ export default function RegisterForm() {
             name="email"
             id="email"
             placeholder="Enter your email"
-            className="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition"
+            className="w-full mt-2 px-4 py-2 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition"
           />
         </div>
 
@@ -58,14 +58,14 @@ export default function RegisterForm() {
             name="password"
             id="password"
             placeholder="Enter your password"
-            className="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition"
+            className="w-full my-2 px-4 py-2 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition"
           />
         </div>
 
         {/* Submit */}
         <button
           type="submit"
-          className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 rounded-lg transition"
+          className="w-full bg-green-700 hover:bg-green-900 cursor-pointer text-white font-semibold py-2 rounded-lg transition"
         >
           Register
         </button>

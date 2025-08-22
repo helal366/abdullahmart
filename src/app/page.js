@@ -1,4 +1,5 @@
 import Image from "next/image";
+import HomeBanner from "./components/HomeBanner";
 
 export const metadata = {
   title: "Home | abdullahMart",
@@ -7,8 +8,8 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <section className="padding">
-      Hello! Welcome to Home Page.
+    <section className="padding my-10">
+      <HomeBanner/>
     </section>
   );
 }

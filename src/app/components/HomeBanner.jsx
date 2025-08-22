@@ -4,7 +4,7 @@ import React from 'react'
 export default function HomeBanner() {
   return (
     <section>
-        <div className='w-full max-h-[600px] rounded-lg border border-gray-400/50'>
+        <div className='w-full max-h-[600px] rounded-lg border-3 border-gray-400/50'>
             <Image 
             src="https://i.postimg.cc/g2Q0WmtT/banner3.png"
             alt="Banner"

@@ -1,11 +1,9 @@
-import React from 'react'
+import RegisterForm from "./components/RegisterForm";
 
-export const metadata = {
-  title: "Register",
-  description: "Unregistered users can register here.",
-};
 export default function RegisterPage() {
   return (
-    <section className='padding'>RegisterPage</section>
-  )
+    <div className="flex justify-center mt-8">
+      <RegisterForm />
+    </div>
+  );
 }

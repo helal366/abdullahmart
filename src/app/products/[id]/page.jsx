@@ -3,6 +3,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'
 
+export const metadata = {
+  title: "Product Details",
+  description: "The selected product details are shown here.",
+};
+
 export default function ProductDetails({ params }) {
   const id = params?.id;
    const data = [
@@ -106,7 +111,7 @@ export default function ProductDetails({ params }) {
 
       <div className='grid md:grid-cols-[48.5%_48.5%] gap-[3%]'>
         {/* image */}
-        <div className='w-full flex justify-center'>
+        <div className='w-full flex justify-center rounded-lg'>
           <Image
             src={singleData?.image}
             alt={singleData?.name}

@@ -3,7 +3,7 @@ import Link from 'next/link'
 import React from 'react'
 
 export const metadata = {
-  title: "All Products | abdullahMart",
+  title: "All Products",
   description: "All the products are shown here.",
 };
 

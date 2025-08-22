@@ -14,7 +14,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "abdullahMart",
+  title: {
+    default: "abdullahMart",
+    template: "%s | abdullahMart"
+  },
   description: "abdullahMart is an e-commerce website to provide safe healthy food items.",
 };
 

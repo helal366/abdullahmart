@@ -1,5 +1,6 @@
 import NotFound from '@/app/not-found';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react'
 
 export default function ProductDetails({ params }) {
@@ -78,10 +79,11 @@ export default function ProductDetails({ params }) {
   }
   return (
     <section className='padding py-10'>
-      <h2 className='text-green-600 text-4xl font-bold mb-10 text-center'>Single Product Details
+      <h2 className='text-green-600 text-4xl font-bold mb-10 text-center bg-gray-200 py-5 rounded-lg'>Single Product Details
       </h2>
 
       <div className='grid md:grid-cols-[48.5%_48.5%] gap-[3%]'>
+        {/* image */}
         <div className='w-full flex justify-center'>
           <Image
             src={singleData?.image}
@@ -91,8 +93,13 @@ export default function ProductDetails({ params }) {
             className='w-full max-h-[500px] rounded-lg border border-gray-400/50' />
         </div>
         <div>
-          <h2 className='text-3xl font-semibold my-5'>{singleData?.name}</h2>
-          <p className='text-justify'>{singleData?.description}</p>
+          <h2 className='text-3xl font-semibold mb-5 text-green-800'>{singleData?.name}</h2>
+          <p className='text-justify mb-8'>{singleData?.description}</p>
+          <Link href={'/products'}>
+          <button className='authButton'>
+            Back To Products
+          </button>
+        </Link>
         </div>
       </div>
     </section>

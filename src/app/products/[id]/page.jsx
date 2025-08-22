@@ -10,7 +10,7 @@ export const metadata = {
 
 export default function ProductDetails({ params }) {
   const id = params?.id;
-   const data = [
+  const data = [
     {
       id: "64e4c5f92a3d9c7a1f3e9b12",
       name: "Almonds",
@@ -106,7 +106,8 @@ export default function ProductDetails({ params }) {
   }
   return (
     <section className='padding py-10'>
-      <h2 className='text-green-600 text-4xl font-bold mb-10 text-center bg-gray-200 py-5 rounded-lg'>Single Product Details
+      <h2 className='text-green-800 text-4xl font-bold mb-10 text-center bg-green-100 py-5 rounded-lg border border-gray-400/50'>
+        Single Product Details
       </h2>
 
       <div className='grid md:grid-cols-[48.5%_48.5%] gap-[3%]'>
@@ -123,10 +124,10 @@ export default function ProductDetails({ params }) {
           <h2 className='text-3xl font-semibold mb-5 text-green-800'>{singleData?.name}</h2>
           <p className='text-justify mb-8'>{singleData?.description}</p>
           <Link href={'/products'}>
-          <button className='authButton'>
-            Back To Products
-          </button>
-        </Link>
+            <button className='authButton'>
+              Back To Products
+            </button>
+          </Link>
         </div>
       </div>
     </section>

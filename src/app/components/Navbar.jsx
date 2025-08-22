@@ -8,7 +8,7 @@ export default function Navbar() {
   if(!pathname.includes('dashboard')){
     return (
       <section>
-        <nav className='flex justify-between bg-green-200 py-6 padding border-b border-gray-500/80'>
+        <nav className='flex justify-between bg-green-100 py-6 padding border-b border-gray-500/80'>
           <div>
             <img className='h-10 border-2 border-green-700 rounded-md' src='/logo1.png' alt="Logo" />
           </div>

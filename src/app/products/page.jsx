@@ -100,19 +100,20 @@ export default function ProductsPage() {
   ];
   return (
     <section className='py-10 padding'>
-      <h1 className='text-green-700 text-4xl lg:text-6xl font-bold mb-10 text-center '>Products Page
-      </h1>
+      <h2 className='text-green-800 text-4xl font-bold mb-10 text-center bg-green-100 py-5 rounded-lg border border-gray-400/50'>
+        All Products
+      </h2>
       <section className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-5'>
         {data.map(d => <div key={d?.id} className='bg-green-100 rounded-lg border border-gray-400/50'>
           <Link href={`/products/${d?.id}`}>
-          <div className='h-[200px] w-full p-6 rounded-lg border border-gray-300/50 cursor-pointer overflow-hidden'>
-            <Image
-              src={d?.image}
-              alt={d?.name}
-              width={500}
-              height={500}
-              className='h-full w-full object-cover rounded-lg' />
-          </div>
+            <div className='h-[200px] w-full p-6 rounded-lg border border-gray-300/50 cursor-pointer overflow-hidden'>
+              <Image
+                src={d?.image}
+                alt={d?.name}
+                width={500}
+                height={500}
+                className='h-full w-full object-cover rounded-lg' />
+            </div>
           </Link>
           <h4 className='font-semibold text-center mb-5'>{d?.name}</h4>
         </div>)}

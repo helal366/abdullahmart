@@ -9,3 +9,9 @@ export async function GET() {
  
   return Response.json({ data })
 }
+
+// post
+export async function POST(req){
+    const newProducts= await req.json();
+    return Response.json({newProducts})
+}

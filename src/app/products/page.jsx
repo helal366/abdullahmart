@@ -2,6 +2,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
+export const metadata = {
+  title: "All Products | abdullahMart",
+  description: "All the products are shown here.",
+};
+
 export default function ProductsPage() {
   const data = [
     {
@@ -92,7 +97,7 @@ export default function ProductsPage() {
       unit: "150 gm",
       description: "Turmeric Powder is a bright yellow spice made from the dried root of the turmeric plant (Curcuma longa). Renowned for its warm, earthy flavor and natural anti-inflammatory properties, it is widely used in cooking, herbal remedies, and wellness practices. Rich in antioxidants, turmeric powder supports digestion, immunity, and overall health."
     },
-  ]
+  ];
   return (
     <section className='py-10 padding'>
       <h1 className='text-green-700 text-4xl lg:text-6xl font-bold mb-10 text-center '>Products Page

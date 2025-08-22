@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "abdullahMart",
-  description: "abdullahMart is an e-commerce website based on food items.",
+  description: "abdullahMart is an e-commerce website to provide safe healthy food items.",
 };
 
 export default function RootLayout({ children }) {

@@ -20,7 +20,7 @@ const singleData = products.find(d => d?._id.toString() === id);
   return (
     <section className='padding py-10'>
       <h2 className='text-green-800 text-4xl font-bold mb-10 text-center bg-green-100 py-5 rounded-lg border border-gray-400/50'>
-        Single Product Details
+        Details of {singleData?.name}
       </h2>
 
       <div className='grid md:grid-cols-[48.5%_48.5%] gap-[3%]'>

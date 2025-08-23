@@ -22,7 +22,7 @@ export const authOptions = {
                 // Add logic here to look up the user from the credentials supplied
                 const { username, password, email } = credentials
                 // const user = await dbConnect(collectionNames.USERS).findOne({ username })
-                const user = await dbConnect(collectionNames.USERS).findOne({ email })
+                const user = await dbConnect(collectionNames.USERS).findOne({ username })
 
                 const isPasswordOK = password == user?.password
                 //const user = { id: "1", name: "J Smith", email: "jsmith@example.com" }
@@ -53,15 +53,15 @@ export const authOptions = {
                 try {
                     //console.log("FROM SIGNIN CALLBACK", { user, account, profile, email, credentials })
                     const { providerAccountId, provider } = account
-                    const { email: user_email, image, name } = user
-                    const payload = { role: "user", providerAccountId, provider, user_email, image, name }
+                    const { email, image, name } = user
+                    const payload = { role: "User", providerAccountId, provider, email, image, username }
                     console.log("FROM SIGNIN CALLBACK", payload)
 
-                    const userCollection = dbConnect(collectionNames.TEST_USER)
-                    const isUserExist = await userCollection.findOne({ providerAccountId })
+                    const usersCollection = dbConnect(collectionNames.USERS)
+                    const isUserExist = await usersCollection.findOne({ providerAccountId })
 
                     if (!isUserExist) {
-                        await userCollection.insertOne(payload)
+                        await usersCollection.insertOne(payload)
                     }
 
                 } catch (error) {

@@ -1,8 +1,10 @@
 "use client";
 
 import { registerUser } from "@/app/actions/auth/registerUser";
+import { useRouter } from "next/navigation";
 
 export default function RegisterForm() {
+   const router = useRouter();
   const handleRegister = async (e) => {
     e.preventDefault();
     const form = e.target;
@@ -10,9 +12,19 @@ export default function RegisterForm() {
     const email = form.email.value;
     const password = form.password.value;
     const payload = { username, email, password };
+    payload.role="User";
     const result = await registerUser(payload);
-    console.log(result);
+
+    if (result?.success) {
+      // ✅ Redirect to All Products page after successful registration
+      router.push("/products");
+    } else {
+      // handle error (optional)
+      console.error("Registration failed:", result?.message);
+    };
   };
+
+  
 
   return (
     <div className="max-w-2xl mx-auto mt-10 p-6 bg-green-100 rounded-lg shadow-lg border border-gray-500/60">
@@ -30,7 +42,8 @@ export default function RegisterForm() {
             name="username"
             id="username"
             placeholder="Enter your name"
-            className="w-full mt-2 px-4 py-2 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-700 focus:border-blue-400 transition"
+            required
+            className="w-full mt-2 px-4 py-2 bg-white text-black border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-700 focus:border-blue-400 transition"
           />
         </div>
 
@@ -44,7 +57,8 @@ export default function RegisterForm() {
             name="email"
             id="email"
             placeholder="Enter your email"
-            className="w-full mt-2 px-4 py-2 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-700 focus:border-blue-400 transition"
+            required
+            className="w-full mt-2 px-4 py-2 bg-white text-black border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-700 focus:border-blue-400 transition"
           />
         </div>
 
@@ -58,7 +72,8 @@ export default function RegisterForm() {
             name="password"
             id="password"
             placeholder="Enter your password"
-            className="w-full my-2 px-4 py-2 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-700 focus:border-blue-400 transition"
+            required
+            className="w-full my-2 px-4 py-2 bg-white text-black border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-700 focus:border-blue-400 transition"
           />
         </div>
 

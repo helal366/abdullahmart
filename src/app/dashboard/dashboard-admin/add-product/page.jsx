@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 export default function AddProduct() {
   const [form, setForm] = useState({
@@ -46,7 +47,7 @@ export default function AddProduct() {
           title: "Success!",
           text: data.message || "Product added successfully!",
           timer: 2500,
-          showConfirmButton: false,
+          showConfirmButton: true,
         });
         setForm({
           name: "",
@@ -55,13 +56,15 @@ export default function AddProduct() {
           unit: "",
           description: "",
           tagline: "",
-          isFavorite: false,
+          isFavorite: true,
         });
       } else {
         Swal.fire({
           icon: "error",
           title: "Error",
           text: data.message || "Something went wrong",
+          timer: 2500,
+          showConfirmButton: true,
         });
       }
     } catch (error) {
@@ -70,6 +73,8 @@ export default function AddProduct() {
         icon: "error",
         title: "Oops!",
         text: "Something went wrong",
+        timer: 2500,
+        showConfirmButton: true,
       });
     }
   };
@@ -121,6 +126,7 @@ export default function AddProduct() {
           value={form.tagline}
           onChange={handleChange}
           placeholder="Tagline"
+          required
           className="w-full p-2 border rounded bg-white"
         />
         <textarea

@@ -11,7 +11,7 @@ export default function AddProduct() {
     tagline: "",
     isFavorite: false,
   });
-  const [loading, setLoading]=useState(false)
+  const [loading, setLoading] = useState(false)
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -21,44 +21,58 @@ export default function AddProduct() {
     }));
   };
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  setLoading(true);
-  try {
-    const res = await fetch("/api/products", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(form),
-    });
-
-    let data = {};
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
     try {
-      data = await res.json(); // safely parse JSON
-    } catch {
-      data = { message: "No response body" };
-    }
-
-    if (res.ok) {
-      alert(data.message || "Product added successfully!");
-      setForm({
-        name: "",
-        image: "",
-        price: "",
-        unit: "",
-        description: "",
-        tagline: "",
-        isFavorite: false,
+      const res = await fetch("/api/products", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
       });
-    } else {
-      alert(`Error: ${data.message}`);
+
+      let data = {};
+      try {
+        data = await res.json(); // safely parse JSON
+      } catch {
+        data = { message: "No response body" };
+      } finally {
+        setLoading(false)
+      }
+
+      if (res.ok) {
+        Swal.fire({
+          icon: "success",
+          title: "Success!",
+          text: data.message || "Product added successfully!",
+          timer: 2500,
+          showConfirmButton: false,
+        });
+        setForm({
+          name: "",
+          image: "",
+          price: "",
+          unit: "",
+          description: "",
+          tagline: "",
+          isFavorite: false,
+        });
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: data.message || "Something went wrong",
+        });
+      }
+    } catch (error) {
+      console.error(error);
+      Swal.fire({
+        icon: "error",
+        title: "Oops!",
+        text: "Something went wrong",
+      });
     }
-  } catch (error) {
-    console.error(error);
-    alert("Something went wrong");
-  } finally{
-    setLoading(false)
-  }
-};
+  };
 
 
   return (
@@ -131,7 +145,7 @@ const handleSubmit = async (e) => {
           className="authButton"
           disabled={loading}
         >
-         {loading? 'Adding...':' Add Product'}
+          {loading ? 'Adding...' : ' Add Product'}
         </button>
       </form>
     </div>

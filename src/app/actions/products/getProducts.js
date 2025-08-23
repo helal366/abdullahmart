@@ -4,11 +4,11 @@ import dbConnect, { collectionNames } from "@/lib/dbConnect";
 
 export const getProducts = async () => {
     try {
-        const data = await dbConnect(collectionNames.PRODUCTS).find({}).toArray();
-        return data;
+        const productsCollection=await dbConnect(collectionNames?.PRODUCTS)
+        const products = productsCollection.find({}).toArray();
+        return products;
     } catch (error) {
         console.log(error)
         return []
     }
-
 }

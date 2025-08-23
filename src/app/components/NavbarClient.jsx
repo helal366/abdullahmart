@@ -13,8 +13,8 @@ export default function NavbarClient({ session }) {
   if (pathname.includes("dashboard")) return null;
 
   return (
-    <nav className="bg-green-100 border-b border-gray-500/80">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className="bg-green-100 border-b border-gray-500/80 padding">
+      <div >
         <div className="flex justify-between items-center h-16">
           {/* Logo + Email */}
           <div className="flex items-center gap-3">

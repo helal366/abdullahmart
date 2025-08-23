@@ -13,5 +13,5 @@ export async function POST(req){
     const newProduct= await req.json();
     const result=await dbConnect(collectionNames.PRODUCTS).insertOne(newProduct);
     revalidatePath("/products");
-    return NextResponse.json(data);
+    return NextResponse.json(result);
 }

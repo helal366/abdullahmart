@@ -1,18 +1,16 @@
-"use server";
-import dbConnect, { collectionNames } from "@/lib/dbConnect";
 
-export const registerUser = async (payload) => {
 
-    try {
-        //  Need to check if unique username was given
-        const result = await dbConnect(collectionNames.USERS).insertOne(payload);
-        return {
-            success: true,
-            acknowledged: result?.acknowledged,
-            insertedId: result?.insertedId.toString(), // ✅ Convert ObjectId to string
-        };
-    } catch (error) {
-        console.log(error)
-        return null
+export async function registerUser(payload) {
+  try {
+    const usersCollection = dbConnect(collectionNames?.USERS);
+    const existing = await usersCollection.findOne({ email: payload?.email });
+    if (existing) {
+      return { success: false, message: "User already exists" };
     }
+    await usersCollection.insertOne(payload); // ✅ includes role
+    return { success: true };
+  } catch (error) {
+    console.error("Registration error:", error);
+    return { success: false, message: "Internal server error" };
+  }
 }

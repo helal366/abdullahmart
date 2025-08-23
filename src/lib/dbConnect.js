@@ -10,14 +10,23 @@ if (!uri) {
     throw new Error("Please add your MONGODB_URI to .env.local")
 }
 
-function dbConnect(collectionName){
-    const client = new MongoClient(uri, {
+let client;
+let clientPromise;
+
+if(!global._mongoClientPromise){
+    client=new MongoClient(uri, {
         serverApi: {
-        version: ServerApiVersion.v1,
-        strict: true,
-        deprecationErrors: true,
-    }
-    })
+            version: ServerApiVersion.v1,
+            strict: true,
+            deprecationErrors: true
+        }
+    });
+    global._mongoClientPromise=client.connect()
+}
+clientPromise=global._mongoClientPromise;
+
+async function dbConnect(collectionName){
+    const client = await clientPromise;
     return client.db(process.env.DB_NAME).collection(collectionName)
 }
 

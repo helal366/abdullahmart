@@ -14,29 +14,26 @@ export const authOptions = {
             // You can pass any HTML attribute to the <input> tag through the object.
             credentials: {
                 username: { label: "Username", type: "text", placeholder: "Enter your name" },
-                email: {label: "Email", type: "email", placeholder: "Enter your email"},
-                password: { label: "Password", type: "password" , placeholder: "Enter your password"},
+                email: { label: "Email", type: "email", placeholder: "Enter your email" },
+                password: { label: "Password", type: "password", placeholder: "Enter your password" },
             },
-            async authorize(credentials, req) {
-                console.log("CREDENTIALS FROM AUTH", credentials)
-                // Add logic here to look up the user from the credentials supplied
-                const { username, password, email } = credentials
-                // const user = await dbConnect(collectionNames.USERS).findOne({ username })
-                const user = await dbConnect(collectionNames.USERS).findOne({ username })
+            
+            async authorize(credentials) {
+                const { username, password } = credentials;
+                const user = await dbConnect(collectionNames.USERS).findOne({ username });
 
-                const isPasswordOK = password == user?.password
-                //const user = { id: "1", name: "J Smith", email: "jsmith@example.com" }
-
-                if (isPasswordOK) {
-                    // Any object returned will be saved in `user` property of the JWT
-                    return user
-                } else {
-                    // If you return null then an error will be displayed advising the user to check their details.
-                    return null
-
-                    // You can also Reject this callback with an Error thus the user will be sent to the error page with the error message as a query parameter
+                if (user && password === user.password) {
+                    return {
+                        id: user._id.toString(),
+                        username: user.username,
+                        email: user.email,
+                        role: user.role, // ✅ ensure role is passed back
+                    };
                 }
+                return null;
             }
+
+
         }),
         GoogleProvider({
             clientId: process.env.GOOGLE_CLIENT_ID,
@@ -49,12 +46,12 @@ export const authOptions = {
     ],
     callbacks: {
         async signIn({ user, account, profile, email, credentials }) {
+            console.log("FROM SIGNIN CALLBACK", { user, account, profile, email, credentials })
             if (account) {
                 try {
-                    //console.log("FROM SIGNIN CALLBACK", { user, account, profile, email, credentials })
                     const { providerAccountId, provider } = account
                     const { email, image, name } = user
-                    const payload = { role: "User", providerAccountId, provider, email, image, username }
+                    const payload = { role: "User", providerAccountId, provider, email, image, username: name }
                     console.log("FROM SIGNIN CALLBACK", payload)
 
                     const usersCollection = dbConnect(collectionNames.USERS)
@@ -73,19 +70,22 @@ export const authOptions = {
 
             return true
         },
-        async session({ session, token, user }) {
+       
+        async jwt({ token, user }) {
+            if (user) {
+                token.username = user.username;
+                token.role = user.role; // ✅ store role
+            }
+            return token;
+        },
+
+        async session({ session, token }) {
             if (token) {
                 session.user.username = token.username;
-                session.user.role = token.role
+                session.user.role = token.role; // ✅ available on client
             }
-            return session
-        },
-        async jwt({ token, user, account, profile, isNewUser }) {
-            if (user) {
-                token.username = user.username
-                token.role = user.role
-            }
-            return token
+            return session;
         }
+
     }
 }

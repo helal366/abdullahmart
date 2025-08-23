@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import NextAuthSessionProvider from "@/Providers/NextAuthSessionProvider";
+import { auth } from "@/auth"; // from NextAuth (server side)
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,10 +23,11 @@ export const metadata = {
   description: "abdullahMart is an e-commerce website to provide safe healthy food items.",
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+   const session = await auth(); 
   return (
     <html lang="en">
-      <NextAuthSessionProvider>
+      <NextAuthSessionProvider session={session}>
         <body
           suppressHydrationWarning
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}

@@ -11,6 +11,7 @@ export default function AddProduct() {
     tagline: "",
     isFavorite: false,
   });
+  const [loading, setLoading]=useState(false)
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -22,6 +23,7 @@ export default function AddProduct() {
 
 const handleSubmit = async (e) => {
   e.preventDefault();
+  setLoading(true);
   try {
     const res = await fetch("/api/products", {
       method: "POST",
@@ -53,6 +55,8 @@ const handleSubmit = async (e) => {
   } catch (error) {
     console.error(error);
     alert("Something went wrong");
+  } finally{
+    setLoading(false)
   }
 };
 
@@ -125,8 +129,9 @@ const handleSubmit = async (e) => {
         <button
           type="submit"
           className="authButton"
+          disabled={loading}
         >
-          Add Product
+         {loading? 'Adding...':' Add Product'}
         </button>
       </form>
     </div>

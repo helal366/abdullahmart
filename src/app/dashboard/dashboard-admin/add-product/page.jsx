@@ -58,7 +58,7 @@ const handleSubmit = async (e) => {
 
 
   return (
-    <div className="p-6 max-w-3xl mx-auto">
+    <div className="p-6 max-w-3xl mx-auto bg-green-100 my-10 text-black border border-gray-500/50 rounded-lg">
       <h1 className="text-2xl font-bold mb-4">Add New Product</h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         <input
@@ -67,7 +67,7 @@ const handleSubmit = async (e) => {
           value={form.name}
           onChange={handleChange}
           placeholder="Product Name"
-          className="w-full p-2 border rounded"
+          className="w-full p-2 border rounded bg-white"
           required
         />
         <input
@@ -76,7 +76,7 @@ const handleSubmit = async (e) => {
           value={form.image}
           onChange={handleChange}
           placeholder="Image URL"
-          className="w-full p-2 border rounded"
+          className="w-full p-2 border rounded bg-white"
           required
         />
         <input
@@ -85,7 +85,7 @@ const handleSubmit = async (e) => {
           value={form.price}
           onChange={handleChange}
           placeholder="Price"
-          className="w-full p-2 border rounded"
+          className="w-full p-2 border rounded bg-white"
           required
         />
         <input
@@ -94,7 +94,7 @@ const handleSubmit = async (e) => {
           value={form.unit}
           onChange={handleChange}
           placeholder="Unit (e.g., 1kg)"
-          className="w-full p-2 border rounded"
+          className="w-full p-2 border rounded bg-white"
           required
         />
         <input
@@ -103,17 +103,17 @@ const handleSubmit = async (e) => {
           value={form.tagline}
           onChange={handleChange}
           placeholder="Tagline"
-          className="w-full p-2 border rounded"
+          className="w-full p-2 border rounded bg-white"
         />
         <textarea
           name="description"
           value={form.description}
           onChange={handleChange}
           placeholder="Description"
-          className="w-full p-2 border rounded"
+          className="w-full p-2 border rounded bg-white"
           required
         />
-        <label className="flex items-center gap-2">
+        <label className="flex items-center gap-2 ">
           <input
             type="checkbox"
             name="isFavorite"

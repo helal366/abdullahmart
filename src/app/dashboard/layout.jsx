@@ -39,18 +39,17 @@ export default function DashboardLayout({ children }) {
           fixed top-0 left-0 h-screen w-64 bg-green-50 text-white p-4
           transform transition-transform duration-300
           ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} 
-          md:translate-x-0 md:static md:flex-shrink-0
+          md:translate-x-0 md:static md:flex-shrink-0 border border-gray-500/60
         `}
       >
-        <h2 className="text-xl font-bold mb-6">Dashboard</h2>
-        <ul className="space-y-3">
+        <ul className="space-y-3 mt-16">
           <li>
             <Link
-              href="/dashboard"
+              href="/"
               className="flex items-center gap-3 p-3 rounded-lg bg-green-700 shadow-md hover:bg-green-600 hover:shadow-lg transition"
             >
               <HiOutlineHome size={20} />
-              <span>Dashboard</span>
+              <span>Home</span>
             </Link>
           </li>
           {
